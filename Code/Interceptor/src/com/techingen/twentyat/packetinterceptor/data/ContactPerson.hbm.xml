@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 Mar, 2011 4:37:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.techingen.twentyat.packetinterceptor.data.ContactPerson" table="contact_person" catalog="twentyat">
+        <id name="contactId" type="java.lang.Integer">
+            <column name="contact_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="twentyatUser" class="com.techingen.twentyat.packetinterceptor.data.TwentyatUser" fetch="select">
+            <column name="twentyat_user_id" length="45" />
+        </many-to-one>
+        <property name="firstName" type="string">
+            <column name="first_name" length="45" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100" />
+        </property>
+        <property name="mobilePhone" type="string">
+            <column name="mobile_phone" length="45" />
+        </property>
+        <property name="photo" type="string">
+            <column name="photo" length="45" />
+        </property>
+        <property name="friendlyName" type="string">
+            <column name="friendly_name" />
+        </property>
+        <property name="middleName" type="string">
+            <column name="middle_name" length="50" />
+        </property>
+        <property name="facebookId" type="string">
+            <column name="facebook_id" length="45" />
+        </property>
+        <property name="streetAddress" type="string">
+            <column name="street_address" length="100" />
+        </property>
+        <property name="locality" type="string">
+            <column name="locality" length="50" />
+        </property>
+        <property name="region" type="string">
+            <column name="region" length="50" />
+        </property>
+        <property name="postalCode" type="java.lang.Integer">
+            <column name="postal_code" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

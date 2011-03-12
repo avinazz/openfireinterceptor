@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 Mar, 2011 4:37:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.techingen.twentyat.packetinterceptor.data.Message" table="message" catalog="twentyat">
+        <id name="messageId" type="java.lang.Integer">
+            <column name="message_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="twentyatUser" class="com.techingen.twentyat.packetinterceptor.data.TwentyatUser" fetch="select">
+            <column name="sender_id" length="45" not-null="true" />
+        </many-to-one>
+        <property name="datetime" type="timestamp">
+            <column name="datetime" length="19" />
+        </property>
+        <property name="messageText" type="string">
+            <column name="message_text" length="45" />
+        </property>
+        <property name="parentId" type="java.lang.Integer">
+            <column name="parent_id" />
+        </property>
+        <set name="recipients" inverse="true" cascade="all">
+            <key>
+                <column name="message_id" not-null="true" />
+            </key>
+            <one-to-many class="com.techingen.twentyat.packetinterceptor.data.Recipient" />
+        </set>
+    </class>
+</hibernate-mapping>

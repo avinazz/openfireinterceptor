@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <!-- Main plugin class -->
+    <class>com.techingen.openfireplugins.PacketInterceptorPlugin</class>
+         
+
+    <!-- Plugin meta-data -->
+    <name>Tech Ingen Packet Interceptor Plugin</name>
+    <description>This plugin intercepts Packets and forwards them to SMTP Servers as necessary.</description>
+    <author>Tech Ingen</author>
+
+    <version>1.0</version>
+    <date>04/03/2011</date>
+    <url>http://www.igniterealtime.org/projects/openfire/plugins.jsp</url>
+    <minServerVersion>3.0.0</minServerVersion>
+    <licenseType>gpl</licenseType>
+
+    <!-- Admin console entries -->
+    <adminconsole>
+        <!-- More on this below -->
+    </adminconsole>
+</plugin>
