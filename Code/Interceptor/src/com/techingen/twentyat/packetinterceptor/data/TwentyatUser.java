@@ -1,5 +1,5 @@
 package com.techingen.twentyat.packetinterceptor.data;
-// Generated 9 Mar, 2011 4:37:06 PM by Hibernate Tools 3.2.1.GA
+// Generated Mar 16, 2011 7:33:33 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -26,7 +26,6 @@ public class TwentyatUser  implements java.io.Serializable {
      private String region;
      private Integer postalCode;
      private String country;
-     private String username;
      private Set<TwentyatGroup> twentyatGroups = new HashSet<TwentyatGroup>(0);
      private Set<Recipient> recipients = new HashSet<Recipient>(0);
      private Set<FriendsMapping> friendsMappings = new HashSet<FriendsMapping>(0);
@@ -37,11 +36,10 @@ public class TwentyatUser  implements java.io.Serializable {
     }
 
 	
-    public TwentyatUser(String twentyatUserId, String username) {
+    public TwentyatUser(String twentyatUserId) {
         this.twentyatUserId = twentyatUserId;
-        this.username = username;
     }
-    public TwentyatUser(String twentyatUserId, String firstName, String lastName, String email, String mobilePhone, String photo, String friendlyName, String middleName, Long facebookId, Boolean isActive, String streetAddress, String locality, String region, Integer postalCode, String country, String username, Set<TwentyatGroup> twentyatGroups, Set<Recipient> recipients, Set<FriendsMapping> friendsMappings, Set<ContactPerson> contactPersons, Set<Message> messages) {
+    public TwentyatUser(String twentyatUserId, String firstName, String lastName, String email, String mobilePhone, String photo, String friendlyName, String middleName, Long facebookId, Boolean isActive, String streetAddress, String locality, String region, Integer postalCode, String country, Set<TwentyatGroup> twentyatGroups, Set<Recipient> recipients, Set<FriendsMapping> friendsMappings, Set<ContactPerson> contactPersons, Set<Message> messages) {
        this.twentyatUserId = twentyatUserId;
        this.firstName = firstName;
        this.lastName = lastName;
@@ -57,7 +55,6 @@ public class TwentyatUser  implements java.io.Serializable {
        this.region = region;
        this.postalCode = postalCode;
        this.country = country;
-       this.username = username;
        this.twentyatGroups = twentyatGroups;
        this.recipients = recipients;
        this.friendsMappings = friendsMappings;
@@ -169,13 +166,6 @@ public class TwentyatUser  implements java.io.Serializable {
     
     public void setCountry(String country) {
         this.country = country;
-    }
-    public String getUsername() {
-        return this.username;
-    }
-    
-    public void setUsername(String username) {
-        this.username = username;
     }
     public Set<TwentyatGroup> getTwentyatGroups() {
         return this.twentyatGroups;

@@ -1,5 +1,5 @@
 package com.techingen.twentyat.packetinterceptor.data;
-// Generated 9 Mar, 2011 4:37:06 PM by Hibernate Tools 3.2.1.GA
+// Generated Mar 16, 2011 7:33:33 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;

@@ -4,14 +4,21 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://192.168.1.7:3306/twentyat</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">cloud</property>
-    <mapping resource="com/techingen/twentyat/packetinterceptor/data/TwentyatUser.hbm.xml"/>
+    <property name="hibernate.connection.url">jdbc:mysql://twentyatdev.czuhvjmopell.us-east-1.rds.amazonaws.com:3306/twentyat</property>
+    <property name="hibernate.connection.username">twentyatuser</property>
+    <property name="hibernate.connection.password">20twentyat</property>
+    <property name="hibernate.c3p0.min_size">5</property>
+    <property name="hibernate.c3p0.max_size">20</property>
+    <property name="hibernate.c3p0.timeout">5000</property>
+    <property name="hibernate.c3p0.max_statements">50</property>
+    <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+    <property name="hibernate.c3p0.idle_test_period">300</property>
+    
     <mapping resource="com/techingen/twentyat/packetinterceptor/data/TwentyatGroup.hbm.xml"/>
-    <mapping resource="com/techingen/twentyat/packetinterceptor/data/FriendsMapping.hbm.xml"/>
+    <mapping resource="com/techingen/twentyat/packetinterceptor/data/Recipient.hbm.xml"/>
     <mapping resource="com/techingen/twentyat/packetinterceptor/data/Message.hbm.xml"/>
     <mapping resource="com/techingen/twentyat/packetinterceptor/data/ContactPerson.hbm.xml"/>
-    <mapping resource="com/techingen/twentyat/packetinterceptor/data/Recipient.hbm.xml"/>
+    <mapping resource="com/techingen/twentyat/packetinterceptor/data/FriendsMapping.hbm.xml"/>
+    <mapping resource="com/techingen/twentyat/packetinterceptor/data/TwentyatUser.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

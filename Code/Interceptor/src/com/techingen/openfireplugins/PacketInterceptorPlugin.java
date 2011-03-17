@@ -49,11 +49,11 @@ public void initializePlugin(PluginManager manager, File pluginDirectory) {
    InterceptorManager.getInstance().addInterceptor(this);     //logger.log(Level.ALL, "init");
    try{
 
-   fileIntercept=new File("/home/openfire/intercept.log");
+   fileIntercept=new File("intercept.log");
    outIntercept=new PrintWriter(fileIntercept);
    outIntercept.println("Created File");
  
-    fileInitialize=new File("/home/openfire/initialize.log");
+    fileInitialize=new File("initialize.log");
     outInitialize=new PrintWriter(fileInitialize);
     outInitialize.println("Initialized Plugin");
     Mailgun.init("key-9smdw6vjbobqwiwdd7");
@@ -201,6 +201,7 @@ private int insertMessage(TwentyatUser from,TwentyatUser to,String threadId,Stri
     session.persist(message);
     transaction.commit();
     outIntercept.println("Successfully Logged Packet to Db");
+    session.close();
     return message.getMessageId();
 
     }
@@ -208,28 +209,31 @@ private int insertMessage(TwentyatUser from,TwentyatUser to,String threadId,Stri
      transaction.rollback();
      outIntercept.println("Exception Logging Packet to Db");
      he.printStackTrace(outIntercept);
+     session.close();
      return -1;
     }
     
 }
-private TwentyatUser getTwentyAtUser(String username){
-    username=username.split("@")[0];
-    outIntercept.println("getTwentyAtUser:"+username);
+private TwentyatUser getTwentyAtUser(String id){
+    id=id.split("@")[0];
+    outIntercept.println("getTwentyAtUser:"+id);
     org.hibernate.Session session=sessionFactory.openSession();
-    String hql="from TwentyatUser where username='"+username+"'";
+    String hql="from TwentyatUser where twentyatUserId='"+id+"'";
     outIntercept.println("HQL:"+hql);
     Query query=session.createQuery(hql);
     List<TwentyatUser>twentyAtUsers=query.list();
     Iterator<TwentyatUser>iTwentyAtUsers=twentyAtUsers.iterator();
     TwentyatUser twentyatUser=null;
     if(iTwentyAtUsers.hasNext()){
+
         twentyatUser=iTwentyAtUsers.next();
-        outIntercept.println("Successfully Retrieved User from Db:username"+username+":"+twentyatUser.getFirstName()+" "+twentyatUser.getLastName()+":"+twentyatUser.getEmail());
+        outIntercept.println("Successfully Retrieved User from Db:"+twentyatUser.getFirstName()+" "+twentyatUser.getLastName()+":"+twentyatUser.getEmail());
     }
     else{
-        outIntercept.println("No Such User:"+username);
+        outIntercept.println("No Such User:"+id);
         twentyatUser=null;
     }
+    session.close();
     return twentyatUser;
     
  

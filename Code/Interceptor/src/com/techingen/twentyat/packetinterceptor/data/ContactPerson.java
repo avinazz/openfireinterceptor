@@ -1,5 +1,5 @@
 package com.techingen.twentyat.packetinterceptor.data;
-// Generated 9 Mar, 2011 4:37:06 PM by Hibernate Tools 3.2.1.GA
+// Generated Mar 16, 2011 7:33:33 PM by Hibernate Tools 3.2.1.GA
 
 
 
@@ -18,7 +18,7 @@ public class ContactPerson  implements java.io.Serializable {
      private String photo;
      private String friendlyName;
      private String middleName;
-     private String facebookId;
+     private Long facebookId;
      private String streetAddress;
      private String locality;
      private String region;
@@ -28,7 +28,7 @@ public class ContactPerson  implements java.io.Serializable {
     public ContactPerson() {
     }
 
-    public ContactPerson(TwentyatUser twentyatUser, String firstName, String lastName, String email, String mobilePhone, String photo, String friendlyName, String middleName, String facebookId, String streetAddress, String locality, String region, Integer postalCode, String country) {
+    public ContactPerson(TwentyatUser twentyatUser, String firstName, String lastName, String email, String mobilePhone, String photo, String friendlyName, String middleName, Long facebookId, String streetAddress, String locality, String region, Integer postalCode, String country) {
        this.twentyatUser = twentyatUser;
        this.firstName = firstName;
        this.lastName = lastName;
@@ -108,11 +108,11 @@ public class ContactPerson  implements java.io.Serializable {
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
     }
-    public String getFacebookId() {
+    public Long getFacebookId() {
         return this.facebookId;
     }
     
-    public void setFacebookId(String facebookId) {
+    public void setFacebookId(Long facebookId) {
         this.facebookId = facebookId;
     }
     public String getStreetAddress() {

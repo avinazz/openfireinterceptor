@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 9 Mar, 2011 4:37:06 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Mar 16, 2011 7:33:33 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.techingen.twentyat.packetinterceptor.data.ContactPerson" table="contact_person" catalog="twentyat">
         <id name="contactId" type="java.lang.Integer">
@@ -32,8 +32,8 @@
         <property name="middleName" type="string">
             <column name="middle_name" length="50" />
         </property>
-        <property name="facebookId" type="string">
-            <column name="facebook_id" length="45" />
+        <property name="facebookId" type="java.lang.Long">
+            <column name="facebook_id" />
         </property>
         <property name="streetAddress" type="string">
             <column name="street_address" length="100" />
